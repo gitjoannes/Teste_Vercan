@@ -14,7 +14,7 @@
                             Nome Fantasia/Apelido
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="tbAll" rowspan="1" colspan="1"
-                            aria-label="CNPJ/CPF: activate to sort column ascending" style="width: 189.8px;">CNPJ/CPF
+                            aria-label="CNPJ/CPF: activate to sort column ascending" style="width: 189.8px;">CNPJ
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="tbAll" rowspan="1" colspan="1"
                             aria-label="Ativo: activate to sort column ascending" style="width: 117.8px;">Ativo
@@ -46,10 +46,25 @@
                     <tr>
                         <th rowspan="1" colspan="1">Razão Social/Nome</th>
                         <th rowspan="1" colspan="1">Nome Fantasia/Apelido</th>
-                        <th rowspan="1" colspan="1">CNPJ/CPF</th>
+                        <th rowspan="1" colspan="1">CPF</th>
                         <th rowspan="1" colspan="1">Ativo</th>
                         <th class="text-center" rowspan="1" colspan="1">Ação</th>
                     </tr>
+
+                    @foreach($registro_Fornec_PF as $registro_PF)
+                        <tr>
+                            <td>{{$registro_PF->nome}}</td>
+                            <td>{{$registro_PF->apelido}}</td>
+                            <td>{{$registro_PF->cpf}}</td>
+                            <td>{{$registro_PF->ativo}}</td>
+                            <td style="width: 5%;" class="action-group-button text-center">
+                                <div class="btn-group">
+                                    <a href="{{route('deletar.fornecPFisc',$registro_PF->id)}}"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('deletar.fornecPFisc',$registro_PF->id)}}"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tfoot>
                 </table>
             </div>
